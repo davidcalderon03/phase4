@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { apiCaller } from "../util";
+
 function Product() {
-    const apiCaller = async (endpoint, options = {}) => {
-      options.credentials = options.credentials || "include";
-      options.headers = options.headers || {};
-      options.headers["Content-Type"] =
-      options.headers["Content-Type"] || "application/json";
-      const response = await fetch("http://localhost:3000/product", options)
-      .then(response => response.json());
-      return response;
-    };
-    
     const prepareProducts = async () => {
       const response = await apiCaller("/product");
       console.log(response);
