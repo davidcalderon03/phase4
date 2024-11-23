@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
+import AddEmployee from "./../procedures/AddEmployee.jsx";
 import {apiCaller} from "./../util.js";
 function Employee() {
     const prepareEmployees = async () => {
       const response = await apiCaller("/employee");
       setEmployees(response);
     };
-    
+
     const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
-      if (employees.length == 0) {
+      if (employees.length === 0) {
         prepareEmployees();
       }
     });
@@ -17,7 +18,7 @@ function Employee() {
     return (
       <div className="Employee">
         <p>Employee</p>
-        <ul>
+        <table><tbody>
           <tr>
             <th>Username</th>
             <th>Salary</th>
@@ -34,7 +35,8 @@ function Employee() {
               <td>{item.hired}</td>
             </tr>
           ))}
-        </ul>
+          </tbody></table>
+        <AddEmployee />
       </div>
     );
   }

@@ -19,7 +19,7 @@ function Product() {
     return (
       <div className="Product">
         <p>Products</p>
-        <ul>
+        <table><tbody>
           <tr>
             <th>Barcode</th>
             <th>Name</th>
@@ -32,7 +32,7 @@ function Product() {
               <td>{item.weight}</td>
             </tr>
           ))}
-        </ul>
+        </tbody></table>
       </div>
     );
   }
