@@ -128,6 +128,16 @@ app.get("/fund", (req, res) => {
   });
 });
 
+// VIEWS
+app.get("/employeeview", (req, res) => {
+  connection.query("SELECT * FROM display_employee_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// STORED PROCEDURES
 app.post("/addemployee", (req, res) => {
   console.log(req.body);
   var query = "CALL add_employee('" +
@@ -140,6 +150,127 @@ app.post("/addemployee", (req, res) => {
       req.body.hiredDate + "'," + 
       req.body.experience + "," + 
       req.body.salary + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/adddriverrole", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_driver_role('" +
+      req.body.username + "','" + 
+      req.body.licenseID + "','" + 
+      req.body.licenseType+ "'," + 
+      req.body.successfulTrips + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/drivevan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL drive_van('" +
+      req.body.id + "'," + 
+      req.body.tag + ",'" + 
+      req.body.destination + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/removevan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_van('" +
+      req.body.id + "'," + 
+      req.body.tag + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/purchaseproduct", (req, res) => {
+  console.log(req.body);
+  var query = "CALL purchase_product('" +
+      req.body.longName + "','" + 
+      req.body.id + "'," + 
+      req.body.tag + ",'" + 
+      req.body.barcode + "'," + 
+      req.body.quantity + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+
+app.post("/removeproduct", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_product('" +
+      req.body.barcode + "');";
       console.log(query);
   connection.query(
     query

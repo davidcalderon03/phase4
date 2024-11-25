@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
+import AddDriverRole from "../procedures/AddDriverRole.jsx";
 function Driver() {
     const prepareDrivers = async () => {
       const response = await apiCaller("/driver");
@@ -33,6 +34,7 @@ function Driver() {
             </tr>
           ))}
           </tbody></table>
+          <AddDriverRole />
       </div>
     );
   }

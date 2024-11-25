@@ -18,6 +18,8 @@ import Contain from './pages/Contain';
 import WorkFor from './pages/WorkFor';
 import Fund from './pages/Fund';
 
+import EmployeeView from './views/EmployeeView';
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -37,6 +39,9 @@ export default function App() {
           <Route path="contain" element={<Contain />} />
           <Route path="work_for" element={<WorkFor />} />
           <Route path="fund" element={<Fund />} />
+
+          <Route path="employee_view" element={<EmployeeView />} />
+
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

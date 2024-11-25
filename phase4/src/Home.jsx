@@ -18,6 +18,8 @@ function Home() {
           <li><Link to="/contain">Contain</Link></li>
           <li><Link to="/work_for">Work For</Link></li>
           <li><Link to="/fund">Fund</Link></li>
+
+          <li><Link to="/employee_view">Employee View</Link></li>
         </ul>
       </nav>
       <Outlet />
