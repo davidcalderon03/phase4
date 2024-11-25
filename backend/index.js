@@ -24,6 +24,14 @@ connection.connect((err) => {
   console.log('Connected to MySQL as ID ' + connection.threadId);
 });
 
+app.get("/user", (req, res) => {
+  connection.query("SELECT * FROM users", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+});
+});
+
 app.get("/employee", (req, res) => {
     connection.query("SELECT * FROM employees", function (err, result) {
       if (err) throw err;
@@ -32,8 +40,24 @@ app.get("/employee", (req, res) => {
   });
 });
 
-app.get("/product", (req, res) => {
-  connection.query("SELECT * FROM products", function (err, result) {
+app.get("/driver", (req, res) => {
+  connection.query("SELECT * FROM drivers", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+});
+});
+
+app.get("/businessowner", (req, res) => {
+  connection.query("SELECT * FROM business_owners", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+});
+});
+
+app.get("/worker", (req, res) => {
+  connection.query("SELECT * FROM workers", function (err, result) {
     if (err) throw err;
     console.log("Result: " + result);
     res.send(result);
@@ -48,6 +72,14 @@ app.get("/van", (req, res) => {
   });
 });
 
+app.get("/product", (req, res) => {
+  connection.query("SELECT * FROM products", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
 app.get("/business", (req, res) => {
   connection.query("SELECT * FROM businesses", function (err, result) {
     if (err) throw err;
@@ -56,6 +88,56 @@ app.get("/business", (req, res) => {
   });
 });
 
+app.get("/location", (req, res) => {
+  connection.query("SELECT * FROM locations", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/deliveryservice", (req, res) => {
+  connection.query("SELECT * FROM delivery_services", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/contain", (req, res) => {
+  connection.query("SELECT * FROM contain", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/workfor", (req, res) => {
+  connection.query("SELECT * FROM work_for", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/fund", (req, res) => {
+  connection.query("SELECT * FROM fund", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// VIEWS
+app.get("/employeeview", (req, res) => {
+  connection.query("SELECT * FROM display_employee_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// STORED PROCEDURES
 app.post("/addemployee", (req, res) => {
   console.log(req.body);
   var query = "CALL add_employee('" +
@@ -68,6 +150,127 @@ app.post("/addemployee", (req, res) => {
       req.body.hiredDate + "'," + 
       req.body.experience + "," + 
       req.body.salary + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/adddriverrole", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_driver_role('" +
+      req.body.username + "','" + 
+      req.body.licenseID + "','" + 
+      req.body.licenseType+ "'," + 
+      req.body.successfulTrips + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/drivevan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL drive_van('" +
+      req.body.id + "'," + 
+      req.body.tag + ",'" + 
+      req.body.destination + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/removevan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_van('" +
+      req.body.id + "'," + 
+      req.body.tag + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/purchaseproduct", (req, res) => {
+  console.log(req.body);
+  var query = "CALL purchase_product('" +
+      req.body.longName + "','" + 
+      req.body.id + "'," + 
+      req.body.tag + ",'" + 
+      req.body.barcode + "'," + 
+      req.body.quantity + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+
+app.post("/removeproduct", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_product('" +
+      req.body.barcode + "');";
       console.log(query);
   connection.query(
     query
