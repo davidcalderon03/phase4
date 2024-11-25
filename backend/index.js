@@ -24,6 +24,14 @@ connection.connect((err) => {
   console.log('Connected to MySQL as ID ' + connection.threadId);
 });
 
+app.get("/user", (req, res) => {
+  connection.query("SELECT * FROM users", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+});
+});
+
 app.get("/employee", (req, res) => {
     connection.query("SELECT * FROM employees", function (err, result) {
       if (err) throw err;
@@ -32,8 +40,24 @@ app.get("/employee", (req, res) => {
   });
 });
 
-app.get("/product", (req, res) => {
-  connection.query("SELECT * FROM products", function (err, result) {
+app.get("/driver", (req, res) => {
+  connection.query("SELECT * FROM drivers", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+});
+});
+
+app.get("/businessowner", (req, res) => {
+  connection.query("SELECT * FROM business_owners", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+});
+});
+
+app.get("/worker", (req, res) => {
+  connection.query("SELECT * FROM workers", function (err, result) {
     if (err) throw err;
     console.log("Result: " + result);
     res.send(result);
@@ -48,8 +72,56 @@ app.get("/van", (req, res) => {
   });
 });
 
+app.get("/product", (req, res) => {
+  connection.query("SELECT * FROM products", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
 app.get("/business", (req, res) => {
   connection.query("SELECT * FROM businesses", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/location", (req, res) => {
+  connection.query("SELECT * FROM locations", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/deliveryservice", (req, res) => {
+  connection.query("SELECT * FROM delivery_services", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/contain", (req, res) => {
+  connection.query("SELECT * FROM contain", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/workfor", (req, res) => {
+  connection.query("SELECT * FROM work_for", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/fund", (req, res) => {
+  connection.query("SELECT * FROM fund", function (err, result) {
     if (err) throw err;
     console.log("Result: " + result);
     res.send(result);
