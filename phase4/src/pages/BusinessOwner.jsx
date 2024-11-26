@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AddOwner from "../procedures/AddOwner.jsx";
 import {apiCaller} from "./../util.js";
 function BusinessOwner() {
     const prepareBusinessOwners = async () => {
@@ -27,6 +28,7 @@ function BusinessOwner() {
             </tr>
           ))}
           </tbody></table>
+          <AddOwner />
       </div>
     );
   }
