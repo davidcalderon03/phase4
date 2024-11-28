@@ -4,6 +4,7 @@ import DriveVan from "../procedures/DriveVan.jsx";
 import RemoveVan from "../procedures/RemoveVan.jsx";
 import PurchaseProduct from "../procedures/PurchaseProduct.jsx";
 import RemoveProduct from "../procedures/RemoveProduct.jsx";
+import AddVan from "../procedures/AddVan.jsx";
 function Van() {
     const prepareVans = async () => {
       const response = await apiCaller("/van");
@@ -45,6 +46,7 @@ function Van() {
         </tbody></table>
         <DriveVan />
         <RemoveVan />
+        <AddVan />
         <PurchaseProduct />
         <RemoveProduct />
       </div>
