@@ -37,6 +37,7 @@ function Employee() {
           ))}
           </tbody></table>
         <AddEmployee />
+        <HireEmployee />
       </div>
     );
   }
