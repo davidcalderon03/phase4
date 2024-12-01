@@ -19,6 +19,8 @@ import WorkFor from './pages/WorkFor';
 import Fund from './pages/Fund';
 
 import EmployeeView from './views/EmployeeView';
+import OwnerView from './views/OwnerView';
+
 
 export default function App() {
   return (
@@ -41,6 +43,7 @@ export default function App() {
           <Route path="fund" element={<Fund />} />
 
           <Route path="employee_view" element={<EmployeeView />} />
+          <Route path="owner_view" element={<OwnerView />} />
 
           <Route path="*" element={<Home />} />
         </Route>

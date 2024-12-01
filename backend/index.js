@@ -137,6 +137,14 @@ app.get("/employeeview", (req, res) => {
   });
 });
 
+app.get("/ownerview", (req, res) => {
+  connection.query("SELECT * FROM display_owner_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
 // STORED PROCEDURES
 app.post("/addemployee", (req, res) => {
   console.log(req.body);
