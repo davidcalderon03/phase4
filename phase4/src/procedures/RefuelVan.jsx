@@ -14,6 +14,7 @@ function RefuelVan() {
             body: JSON.stringify({
                 id: id,
                 tag: Number(tag)
+                morefuel: Number(morefuel)
               })
         })
         .then(response => console.log(response));
