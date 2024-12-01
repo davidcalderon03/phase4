@@ -47,6 +47,7 @@ function Van() {
         <DriveVan />
         <RemoveVan />
         <AddVan />
+        <RefuelVan />
         <PurchaseProduct />
         <RemoveProduct />
       </div>
