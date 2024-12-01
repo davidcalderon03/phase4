@@ -35,6 +35,7 @@ function Driver() {
           ))}
           </tbody></table>
           <AddDriverRole />
+          <RemoveDriverRole />
       </div>
     );
   }

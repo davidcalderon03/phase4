@@ -324,11 +324,12 @@ app.post("/removevan", (req, res) => {
 });
 });
 
-app.post("/removevan", (req, res) => {
+app.post("/refuelvan", (req, res) => {
   console.log(req.body);
-  var query = "CALL remove_van('" +
+  var query = "CALL refuel_van('" +
       req.body.id + "'," + 
-      req.body.tag + ");";
+      req.body.tag + "'," + 
+      req.body.fuel + ");";
       console.log(query);
   connection.query(
     query

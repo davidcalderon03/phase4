@@ -4,8 +4,7 @@ import {apiCaller} from "./../util.js";
 function RefuelVan() {
     const [id, setId] = useState("lcc");
     const [tag, setTag] = useState(1);
-    const [morefuel, setMorefuel] = useState(40);
-
+    const [fuel, setFuel] = useState(40)
 
     const submitForm = async (event) => {
         event.preventDefault();
@@ -13,8 +12,8 @@ function RefuelVan() {
             method: "POST",
             body: JSON.stringify({
                 id: id,
-                tag: Number(tag)
-                morefuel: Number(morefuel)
+                tag: Number(tag),
+                fuel: Number(fuel)
               })
         })
         .then(response => console.log(response));
@@ -32,8 +31,8 @@ function RefuelVan() {
             <label>Tag:</label>
             <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} /><br />
 
-            <label>Morefuel:</label>
-            <input type="text" value={morefuel} onChange={(e) => setMorefuel(e.target.value)} /><br />
+            <label>Fuel:</label>
+            <input type="text" value={fuel} onChange={(e) => setFuel(e.target.value)} /><br />
 
             <input type="submit" />
         </form>
