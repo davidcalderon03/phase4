@@ -23,7 +23,7 @@ function RefuelVan() {
 
     return (
       <div className="RefuelVan">
-        <p>RemoveVan</p>
+        <p>RefuelVan</p>
         <form onSubmit={submitForm}>
 
             <label>ID:</label>
