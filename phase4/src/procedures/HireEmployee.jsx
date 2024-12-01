@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
 function HireEmployee() {
     const [username, setUsername] = useState("walterwhite");
-    const [id, setId] = useState("lcc");
+    const [id, setId] = useState('lcc');
 
     const hireEmployee = async (event) => {
         event.preventDefault();
@@ -35,5 +35,5 @@ function HireEmployee() {
     );
   }
   
-  export default AddEmployee;
+  export default HireEmployee;
   
