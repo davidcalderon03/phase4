@@ -20,6 +20,8 @@ function Home() {
           <li><Link to="/fund">Fund</Link></li>
 
           <li><Link to="/employee_view">Employee View</Link></li>
+          <li><Link to="/owner_view">Owner View</Link></li>
+          <li><Link to="/product_view">Product View</Link></li>
         </ul>
       </nav>
       <Outlet />

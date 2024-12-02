@@ -137,7 +137,50 @@ app.get("/employeeview", (req, res) => {
   });
 });
 
+app.get("/ownerview", (req, res) => {
+  connection.query("SELECT * FROM display_owner_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/displayproductview", (req, res) => {
+  connection.query("SELECT * FROM display_product_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
 // STORED PROCEDURES
+
+app.post("/addowner", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_owner('" +
+      req.body.username + "','" + 
+      req.body.firstName + "','" + 
+      req.body.lastName + "','" + 
+      req.body.address + "','" + 
+      req.body.birthdate + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
 app.post("/addemployee", (req, res) => {
   console.log(req.body);
   var query = "CALL add_employee('" +
@@ -147,8 +190,8 @@ app.post("/addemployee", (req, res) => {
       req.body.address + "','" + 
       req.body.birthdate + "','" + 
       req.body.taxID + "','" + 
-      req.body.hiredDate + "'," + 
-      req.body.experience + "," + 
+      req.body.hiredDate + "','" + 
+      req.body.experience + "','" + 
       req.body.salary + ");";
       console.log(query);
   connection.query(
@@ -173,8 +216,57 @@ app.post("/adddriverrole", (req, res) => {
   var query = "CALL add_driver_role('" +
       req.body.username + "','" + 
       req.body.licenseID + "','" + 
-      req.body.licenseType+ "'," + 
+      req.body.licenseType+ "','" + 
       req.body.successfulTrips + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/addworkerrole", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_worker_role('" +
+      req.body.username + ");" ;
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/addvan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_van('" +
+      req.body.id + "','" + 
+      req.body.tag + "','" + 
+      req.body.fuel + "','" +
+      req.body.capacity + "','" +
+      req.body.sales + "','" +
+      req.body.drivenby + ");";
       console.log(query);
   connection.query(
     query
@@ -240,6 +332,30 @@ app.post("/removevan", (req, res) => {
 });
 });
 
+app.post("/refuelvan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL refuel_van('" +
+      req.body.id + "'," + 
+      req.body.tag + "'," + 
+      req.body.fuel + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
 app.post("/purchaseproduct", (req, res) => {
   console.log(req.body);
   var query = "CALL purchase_product('" +
@@ -271,6 +387,33 @@ app.post("/removeproduct", (req, res) => {
   console.log(req.body);
   var query = "CALL remove_product('" +
       req.body.barcode + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
+
+
+app.post("/removedriverrole", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_driver_role('" +
+      req.body.username + "');";
       console.log(query);
   connection.query(
     query
