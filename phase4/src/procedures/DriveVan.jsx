@@ -4,7 +4,7 @@ import {apiCaller} from "./../util.js";
 function DriveVan() {
     const [id, setId] = useState("lcc");
     const [tag, setTag] = useState(1);
-    const [destination, setDestination] = useState("airport");
+    const [destination, setDestination] = useState("buckhead");
 
     const submitForm = async (event) => {
         event.preventDefault();

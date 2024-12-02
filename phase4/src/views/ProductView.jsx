@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
-import {apiCaller} from "./../util.js";
-function DisplayproductView() {
-    const prepareDisplayproductView = async () => {
-      const response = await apiCaller("/displayproductview");
-      setDisplayproductView(response);
+import {apiCaller} from "../util.js";
+function ProductView() {
+    const prepareProductView = async () => {
+      const response = await apiCaller("/productview");
+      setProductView(response);
     };
 
-    const [displayproductView, setDisplayproductView] = useState([]);
+    const [productView, setProductView] = useState([]);
 
     useEffect(() => {
-      if (displayproductView.length === 0) {
-        prepareDisplayproductView();
+      if (productView.length === 0) {
+        prepareProductView();
       }
     });
 
     return (
-      <div className="DisplayproductView">
-        <p>Displayproduct View</p>
+      <div className="ProductView">
+        <p>Product View</p>
         <table><tbody>
           <tr>
             <th>Product Name</th>
@@ -25,7 +25,7 @@ function DisplayproductView() {
             <th>Low Price</th>
             <th>High Price</th>
           </tr>
-          {displayproductView.map((item, index) => (
+          {productView.map((item, index) => (
             <tr key={index}>
               <td>{item.product_name}</td>
               <td>{item.location}</td>
@@ -39,5 +39,5 @@ function DisplayproductView() {
     );
   }
   
-  export default DisplayproductView; 
+  export default ProductView; 
   

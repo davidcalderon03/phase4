@@ -36,7 +36,7 @@ function AddOwner() {
             <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} /><br />
             <label>Birthdate:</label>
             <input type="text" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} /><br />
-            <label>TaxID:</label>
+            <input type="submit" />
         </form>
       </div>
     );

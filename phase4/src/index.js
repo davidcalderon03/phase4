@@ -20,7 +20,7 @@ import Fund from './pages/Fund';
 
 import EmployeeView from './views/EmployeeView';
 import OwnerView from './views/OwnerView';
-import DisplayProductView from './views/DisplayProductView';
+import ProductView from './views/ProductView';
 
 
 export default function App() {
@@ -45,7 +45,7 @@ export default function App() {
 
           <Route path="employee_view" element={<EmployeeView />} />
           <Route path="owner_view" element={<OwnerView />} />
-          <Route path="display_product_view" element={<DisplayProductView />} />
+          <Route path="product_view" element={<ProductView />} />
 
 
           <Route path="*" element={<Home />} />

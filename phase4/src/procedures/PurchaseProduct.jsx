@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import {apiCaller} from "./../util.js";
 function PurchaseProduct() {
-    const [longName, setLongName] = useState("business");
-    const [id, setId] = useState("llc");
-    const [tag, setTag] = useState(12);
-    const [barcode, setBarcode] = useState("barcode");
+    const [longName, setLongName] = useState("Jones and Associates");
+    const [id, setId] = useState("lcc");
+    const [tag, setTag] = useState(1);
+    const [barcode, setBarcode] = useState("pt_16WEF6");
     const [quantity, setQuantity] = useState(1);
 
     const submitForm = async (event) => {

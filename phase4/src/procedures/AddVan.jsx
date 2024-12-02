@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import {apiCaller} from "./../util.js";
 function AddVan() {
     const [id, setId] = useState("lcc");
-    const [tag, setTag] = useState(1);
+    const [tag, setTag] = useState(3);
     const [fuel, setFuel] = useState(40);
     const [capacity, setCapacity] = useState(3);
     const [sales, setSales] = useState(20)
-    const [drivenby, setDrivenby] = useState("walterwhite")
+    const [drivenby, setDrivenby] = useState("agarcia7")
 
     const submitForm = async (event) => {
         event.preventDefault();
@@ -28,7 +28,7 @@ function AddVan() {
 
     return (
       <div className="AddVan">
-        <p>DriveVan</p>
+        <p>AddVan</p>
         <form onSubmit={submitForm}>
 
             <label>ID:</label>

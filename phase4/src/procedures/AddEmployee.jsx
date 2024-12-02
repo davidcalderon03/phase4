@@ -13,7 +13,6 @@ function AddEmployee() {
 
     const addEmployee = async (event) => {
         event.preventDefault();
-        console.log("ADDING EMPLOYEE");
         const response = await apiCaller("/addemployee", {
             method: "POST",
             body: JSON.stringify({

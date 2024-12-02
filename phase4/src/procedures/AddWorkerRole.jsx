@@ -5,7 +5,7 @@ function AddWorkerRole() {
 
     const addWorkerRole = async (event) => {
         event.preventDefault();
-        const response = await apiCaller("/adddriverrole", {
+        const response = await apiCaller("/addworkerrole", {
             method: "POST",
             body: JSON.stringify({
                 username: username
