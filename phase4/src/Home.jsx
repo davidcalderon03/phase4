@@ -22,6 +22,7 @@ function Home() {
           <li><Link to="/employee_view">Employee View</Link></li>
           <li><Link to="/owner_view">Owner View</Link></li>
           <li><Link to="/product_view">Product View</Link></li>
+          <li><Link to="/service_view">Service View</Link></li>
         </ul>
       </nav>
       <Outlet />

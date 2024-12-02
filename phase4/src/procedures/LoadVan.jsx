@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import {apiCaller} from "./../util.js";
 function LoadVan() {
-    const [id, setId] = useState("lcc");
-    const [tag, setTag] = useState(1);
-    const [barcode, setBarcode] = useState("pt_16WEF6");
+    const [id, setId] = useState("pbl");
+    const [tag, setTag] = useState(8);
+    const [barcode, setBarcode] = useState("hm_5E7L23M");
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState(10);
 

@@ -301,12 +301,36 @@ app.post("/addvan", (req, res) => {
 });
 });
 
+// 11: Hire Employee
+app.post("/hireemployee", (req, res) => {
+  console.log(req.body);
+  var query = "CALL hire_employee('" +
+      req.body.username + "','" + 
+      req.body.id + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
 // 12: Fire Employee
 app.post("/fireemployee", (req, res) => {
   console.log(req.body);
   var query = "CALL fire_employee('" +
-      req.body.username + "'," + 
-      req.body.id + ");";
+      req.body.username + "','" + 
+      req.body.id + "');";
       console.log(query);
   connection.query(
     query
@@ -329,8 +353,8 @@ app.post("/fireemployee", (req, res) => {
 app.post("/manageservice", (req, res) => {
   console.log(req.body);
   var query = "CALL manage_service('" +
-      req.body.username + "'," + 
-      req.body.id + ");";
+      req.body.username + "','" + 
+      req.body.id + "');";
       console.log(query);
   connection.query(
     query
@@ -353,8 +377,8 @@ app.post("/manageservice", (req, res) => {
 app.post("/takeovervan", (req, res) => {
   console.log(req.body);
   var query = "CALL takeover_van('" +
-      req.body.username + "'," + 
-      req.body.id + "," + 
+      req.body.username + "','" + 
+      req.body.id + "'," + 
       req.body.tag + ");";
       console.log(query);
   connection.query(
@@ -378,9 +402,9 @@ app.post("/takeovervan", (req, res) => {
 app.post("/loadvan", (req, res) => {
   console.log(req.body);
   var query = "CALL load_van('" +
-      req.body.id + "," + 
-      req.body.tag + "," + 
-      req.body.barcode + "," +
+      req.body.id + "'," + 
+      req.body.tag + ",'" + 
+      req.body.barcode + "'," +
       req.body.quantity + "," +
       req.body.price + ");";
       console.log(query);
