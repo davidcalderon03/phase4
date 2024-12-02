@@ -5,6 +5,7 @@ import RemoveVan from "../procedures/RemoveVan.jsx";
 import PurchaseProduct from "../procedures/PurchaseProduct.jsx";
 import RemoveProduct from "../procedures/RemoveProduct.jsx";
 import AddVan from "../procedures/AddVan.jsx";
+import RefuelVan from "../procedures/RefuelVan.jsx";
 function Van() {
     const prepareVans = async () => {
       const response = await apiCaller("/van");

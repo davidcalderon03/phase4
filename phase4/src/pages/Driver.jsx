@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
 import AddDriverRole from "../procedures/AddDriverRole.jsx";
+import RemoveDriverRole from "../procedures/RemoveDriverRole.jsx";
 function Driver() {
     const prepareDrivers = async () => {
       const response = await apiCaller("/driver");

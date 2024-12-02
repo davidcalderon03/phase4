@@ -145,6 +145,14 @@ app.get("/ownerview", (req, res) => {
   });
 });
 
+app.get("/displayproductview", (req, res) => {
+  connection.query("SELECT * FROM display_product_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
 // STORED PROCEDURES
 
 app.post("/addowner", (req, res) => {
