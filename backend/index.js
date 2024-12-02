@@ -129,14 +129,7 @@ app.get("/fund", (req, res) => {
 });
 
 // VIEWS
-app.get("/employeeview", (req, res) => {
-  connection.query("SELECT * FROM display_employee_view", function (err, result) {
-    if (err) throw err;
-    console.log("Result: " + result);
-    res.send(result);
-  });
-});
-
+// 22: Owner View
 app.get("/ownerview", (req, res) => {
   connection.query("SELECT * FROM display_owner_view", function (err, result) {
     if (err) throw err;
@@ -145,7 +138,17 @@ app.get("/ownerview", (req, res) => {
   });
 });
 
-app.get("/displayproductview", (req, res) => {
+// 23: Employee View
+app.get("/employeeview", (req, res) => {
+  connection.query("SELECT * FROM display_employee_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// 26: Product View
+app.get("/productview", (req, res) => {
   connection.query("SELECT * FROM display_product_view", function (err, result) {
     if (err) throw err;
     console.log("Result: " + result);
@@ -153,8 +156,8 @@ app.get("/displayproductview", (req, res) => {
   });
 });
 
-// STORED PROCEDURES
-
+// STORED PROCEDURES //
+// 1: Add Owner
 app.post("/addowner", (req, res) => {
   console.log(req.body);
   var query = "CALL add_owner('" +
@@ -162,7 +165,7 @@ app.post("/addowner", (req, res) => {
       req.body.firstName + "','" + 
       req.body.lastName + "','" + 
       req.body.address + "','" + 
-      req.body.birthdate + ");";
+      req.body.birthdate + "');";
       console.log(query);
   connection.query(
     query
@@ -181,6 +184,7 @@ app.post("/addowner", (req, res) => {
 });
 });
 
+// 2: Add Employee
 app.post("/addemployee", (req, res) => {
   console.log(req.body);
   var query = "CALL add_employee('" +
@@ -190,8 +194,8 @@ app.post("/addemployee", (req, res) => {
       req.body.address + "','" + 
       req.body.birthdate + "','" + 
       req.body.taxID + "','" + 
-      req.body.hiredDate + "','" + 
-      req.body.experience + "','" + 
+      req.body.hiredDate + "'," + 
+      req.body.experience + "," + 
       req.body.salary + ");";
       console.log(query);
   connection.query(
@@ -211,12 +215,13 @@ app.post("/addemployee", (req, res) => {
 });
 });
 
+// 3: Add Driver Role
 app.post("/adddriverrole", (req, res) => {
   console.log(req.body);
   var query = "CALL add_driver_role('" +
       req.body.username + "','" + 
       req.body.licenseID + "','" + 
-      req.body.licenseType+ "','" + 
+      req.body.licenseType+ "'," + 
       req.body.successfulTrips + ");";
       console.log(query);
   connection.query(
@@ -236,10 +241,11 @@ app.post("/adddriverrole", (req, res) => {
 });
 });
 
+// 4: Add Worker Role
 app.post("/addworkerrole", (req, res) => {
   console.log(req.body);
   var query = "CALL add_worker_role('" +
-      req.body.username + ");" ;
+      req.body.username + "');" ;
       console.log(query);
   connection.query(
     query
@@ -258,15 +264,16 @@ app.post("/addworkerrole", (req, res) => {
 });
 });
 
+// 6: Add Van
 app.post("/addvan", (req, res) => {
   console.log(req.body);
   var query = "CALL add_van('" +
-      req.body.id + "','" + 
-      req.body.tag + "','" + 
-      req.body.fuel + "','" +
-      req.body.capacity + "','" +
-      req.body.sales + "','" +
-      req.body.drivenby + ");";
+      req.body.id + "'," + 
+      req.body.tag + "," + 
+      req.body.fuel + "," +
+      req.body.capacity + "," +
+      req.body.sales + ",'" +
+      req.body.drivenby + "');";
       console.log(query);
   connection.query(
     query
@@ -285,6 +292,32 @@ app.post("/addvan", (req, res) => {
 });
 });
 
+// 16: Refuel Van
+app.post("/refuelvan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL refuel_van('" +
+      req.body.id + "'," + 
+      req.body.tag + "," + 
+      req.body.fuel + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 17: Drive Van
 app.post("/drivevan", (req, res) => {
   console.log(req.body);
   var query = "CALL drive_van('" +
@@ -309,53 +342,7 @@ app.post("/drivevan", (req, res) => {
 });
 });
 
-app.post("/removevan", (req, res) => {
-  console.log(req.body);
-  var query = "CALL remove_van('" +
-      req.body.id + "'," + 
-      req.body.tag + ");";
-      console.log(query);
-  connection.query(
-    query
-  , function (err, result) {
-    if (err) { 
-      console.log("Error: " + err.sqlMessage);
-      res.json({
-        message: err.sqlMessage
-      });
-    } else {
-      console.log("Result: " + result);
-      res.json({
-        message: 'success'
-      });
-    } 
-});
-});
-
-app.post("/refuelvan", (req, res) => {
-  console.log(req.body);
-  var query = "CALL refuel_van('" +
-      req.body.id + "'," + 
-      req.body.tag + "'," + 
-      req.body.fuel + ");";
-      console.log(query);
-  connection.query(
-    query
-  , function (err, result) {
-    if (err) { 
-      console.log("Error: " + err.sqlMessage);
-      res.json({
-        message: err.sqlMessage
-      });
-    } else {
-      console.log("Result: " + result);
-      res.json({
-        message: 'success'
-      });
-    } 
-});
-});
-
+// 18: Purchase Product
 app.post("/purchaseproduct", (req, res) => {
   console.log(req.body);
   var query = "CALL purchase_product('" +
@@ -382,7 +369,7 @@ app.post("/purchaseproduct", (req, res) => {
 });
 });
 
-
+// 19: Remove Product
 app.post("/removeproduct", (req, res) => {
   console.log(req.body);
   var query = "CALL remove_product('" +
@@ -405,11 +392,31 @@ app.post("/removeproduct", (req, res) => {
 });
 });
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+// 20: Remove Van
+app.post("/removevan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_van('" +
+      req.body.id + "'," + 
+      req.body.tag + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
 });
 
-
+// 21: Remove Driver Role
 app.post("/removedriverrole", (req, res) => {
   console.log(req.body);
   var query = "CALL remove_driver_role('" +
