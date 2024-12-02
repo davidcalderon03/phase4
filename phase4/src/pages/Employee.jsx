@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import AddEmployee from "./../procedures/AddEmployee.jsx";
-import HireEmployee from "../procedures/HireEmployee.jsx";
-import FireEmployee from "../procedures/FireEmployee.jsx";
 import {apiCaller} from "./../util.js";
 function Employee() {
     const prepareEmployees = async () => {
@@ -39,8 +37,6 @@ function Employee() {
           ))}
           </tbody></table>
         <AddEmployee />
-        <HireEmployee />
-        <FireEmployee />
       </div>
     );
   }
