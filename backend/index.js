@@ -400,3 +400,30 @@ app.post("/removeproduct", (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+
+app.post("/removedriverrole", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_driver_role('" +
+      req.body.username + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
