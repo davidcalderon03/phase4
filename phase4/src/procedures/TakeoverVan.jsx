@@ -6,7 +6,7 @@ function TakeoverVan() {
     const [id, setId] = useState("lcc");
     const [tag, setTag] = useState(1);
 
-    const submitForm = async (event) => {
+    const takeoverVan = async (event) => {
         event.preventDefault();
         const response = await apiCaller("/takeovervan", {
             method: "POST",
@@ -23,7 +23,7 @@ function TakeoverVan() {
     return (
       <div className="TakeoverVan">
         <p>TakeoverVan</p>
-        <form onSubmit={submitForm}>
+        <form onSubmit={takeoverVan}>
 
             <label>Username:</label>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
