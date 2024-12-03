@@ -27,7 +27,7 @@ connection.connect((err) => {
 app.get("/user", (req, res) => {
   connection.query("SELECT * FROM users", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched user table");
     res.send(result);
 });
 });
@@ -35,7 +35,7 @@ app.get("/user", (req, res) => {
 app.get("/employee", (req, res) => {
     connection.query("SELECT * FROM employees", function (err, result) {
       if (err) throw err;
-      console.log("Result: " + result);
+      console.log("Fetched employee table");
       res.send(result);
   });
 });
@@ -43,7 +43,7 @@ app.get("/employee", (req, res) => {
 app.get("/driver", (req, res) => {
   connection.query("SELECT * FROM drivers", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched driver table");
     res.send(result);
 });
 });
@@ -51,7 +51,7 @@ app.get("/driver", (req, res) => {
 app.get("/businessowner", (req, res) => {
   connection.query("SELECT * FROM business_owners", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched owner table");
     res.send(result);
 });
 });
@@ -59,7 +59,7 @@ app.get("/businessowner", (req, res) => {
 app.get("/worker", (req, res) => {
   connection.query("SELECT * FROM workers", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched worker table");
     res.send(result);
   });
 });
@@ -67,7 +67,7 @@ app.get("/worker", (req, res) => {
 app.get("/van", (req, res) => {
   connection.query("SELECT * FROM vans", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched van table");
     res.send(result);
   });
 });
@@ -75,7 +75,7 @@ app.get("/van", (req, res) => {
 app.get("/product", (req, res) => {
   connection.query("SELECT * FROM products", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched product table");
     res.send(result);
   });
 });
@@ -83,7 +83,7 @@ app.get("/product", (req, res) => {
 app.get("/business", (req, res) => {
   connection.query("SELECT * FROM businesses", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched business table");
     res.send(result);
   });
 });
@@ -91,7 +91,7 @@ app.get("/business", (req, res) => {
 app.get("/location", (req, res) => {
   connection.query("SELECT * FROM locations", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched location table");
     res.send(result);
   });
 });
@@ -99,7 +99,7 @@ app.get("/location", (req, res) => {
 app.get("/deliveryservice", (req, res) => {
   connection.query("SELECT * FROM delivery_services", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched delivery service table");
     res.send(result);
   });
 });
@@ -107,7 +107,7 @@ app.get("/deliveryservice", (req, res) => {
 app.get("/contain", (req, res) => {
   connection.query("SELECT * FROM contain", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched contain table");
     res.send(result);
   });
 });
@@ -115,7 +115,7 @@ app.get("/contain", (req, res) => {
 app.get("/workfor", (req, res) => {
   connection.query("SELECT * FROM work_for", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched work for table");
     res.send(result);
   });
 });
@@ -123,7 +123,7 @@ app.get("/workfor", (req, res) => {
 app.get("/fund", (req, res) => {
   connection.query("SELECT * FROM fund", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched fund table");
     res.send(result);
   });
 });
@@ -133,7 +133,7 @@ app.get("/fund", (req, res) => {
 app.get("/ownerview", (req, res) => {
   connection.query("SELECT * FROM display_owner_view", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched owner view");
     res.send(result);
   });
 });
@@ -142,7 +142,7 @@ app.get("/ownerview", (req, res) => {
 app.get("/employeeview", (req, res) => {
   connection.query("SELECT * FROM display_employee_view", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched employee view");
     res.send(result);
   });
 });
@@ -151,7 +151,7 @@ app.get("/employeeview", (req, res) => {
 app.get("/driverview", (req, res) => {
   connection.query("SELECT * FROM display_driver_view", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched driver view");
     res.send(result);
   });
 });
@@ -160,7 +160,7 @@ app.get("/driverview", (req, res) => {
 app.get("/locationview", (req, res) => {
   connection.query("SELECT * FROM display_location_view", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched location view");
     res.send(result);
   });
 });
@@ -169,7 +169,7 @@ app.get("/locationview", (req, res) => {
 app.get("/productview", (req, res) => {
   connection.query("SELECT * FROM display_product_view", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched product view");
     res.send(result);
   });
 });
@@ -178,7 +178,7 @@ app.get("/productview", (req, res) => {
 app.get("/serviceview", (req, res) => {
   connection.query("SELECT * FROM display_service_view", function (err, result) {
     if (err) throw err;
-    console.log("Result: " + result);
+    console.log("Fetched service view");
     res.send(result);
   });
 });
@@ -203,7 +203,7 @@ app.post("/addowner", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called addowner");
       res.json({
         message: 'success'
       });
@@ -234,7 +234,7 @@ app.post("/addemployee", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called addemployee");
       res.json({
         message: 'success'
       });
@@ -260,7 +260,7 @@ app.post("/adddriverrole", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called adddriverrole");
       res.json({
         message: 'success'
       });
@@ -284,7 +284,7 @@ app.post("/addworkerrole", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called addworkerrole");
       res.json({
         message: 'success'
       });
@@ -309,7 +309,7 @@ app.post("/addproduct", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called addproduct");
       res.json({
         message: 'success'
       });
@@ -337,7 +337,7 @@ app.post("/addvan", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called addvan");
       res.json({
         message: 'success'
       });
@@ -364,7 +364,7 @@ app.post("/addbusiness", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called addbusiness");
       res.json({
         message: 'success'
       });
@@ -390,7 +390,7 @@ app.post("/addservice", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called addservice");
       res.json({
         message: 'success'
       });
@@ -416,7 +416,7 @@ app.post("/addlocation", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called addlocation");
       res.json({
         message: 'success'
       });
@@ -442,7 +442,7 @@ app.post("/startfunding", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called startfunding");
       res.json({
         message: 'success'
       });
@@ -466,7 +466,7 @@ app.post("/hireemployee", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called hireemployee");
       res.json({
         message: 'success'
       });
@@ -490,7 +490,7 @@ app.post("/fireemployee", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called fireemployee");
       res.json({
         message: 'success'
       });
@@ -514,7 +514,7 @@ app.post("/manageservice", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called manageservice");
       res.json({
         message: 'success'
       });
@@ -539,7 +539,7 @@ app.post("/takeovervan", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called takeovervan");
       res.json({
         message: 'success'
       });
@@ -566,7 +566,7 @@ app.post("/loadvan", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called loadvan");
       res.json({
         message: 'success'
       });
@@ -591,7 +591,7 @@ app.post("/refuelvan", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called refuelvan");
       res.json({
         message: 'success'
       });
@@ -616,7 +616,7 @@ app.post("/drivevan", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called drivevan");
       res.json({
         message: 'success'
       });
@@ -643,7 +643,7 @@ app.post("/purchaseproduct", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called purchaseproduct");
       res.json({
         message: 'success'
       });
@@ -666,7 +666,7 @@ app.post("/removeproduct", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called removeproduct");
       res.json({
         message: 'success'
       });
@@ -690,7 +690,7 @@ app.post("/removevan", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called removevan");
       res.json({
         message: 'success'
       });
@@ -713,7 +713,7 @@ app.post("/removedriverrole", (req, res) => {
         message: err.sqlMessage
       });
     } else {
-      console.log("Result: " + result);
+      console.log("Successfully called removedriverrole");
       res.json({
         message: 'success'
       });
