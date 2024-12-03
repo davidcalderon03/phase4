@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
+import AddService from "../procedures/AddService.jsx";
 function DeliveryService() {
     const prepareDeliveryServices = async () => {
       const response = await apiCaller("/deliveryservice");
@@ -33,6 +34,7 @@ function DeliveryService() {
             </tr>
           ))}
           </tbody></table>
+          <AddService />
       </div>
     );
   }

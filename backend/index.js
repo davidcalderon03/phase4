@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password",
+  password: "0954",
   database: "business_supply",
 });
 
@@ -137,6 +137,22 @@ app.get("/employeeview", (req, res) => {
   });
 });
 
+app.get("/locationview", (req, res) => {
+  connection.query("SELECT * FROM display_location_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+app.get("/driverview", (req, res) => {
+  connection.query("SELECT * FROM display_driver_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
 // STORED PROCEDURES
 app.post("/addemployee", (req, res) => {
   console.log(req.body);
@@ -175,6 +191,130 @@ app.post("/adddriverrole", (req, res) => {
       req.body.licenseID + "','" + 
       req.body.licenseType+ "'," + 
       req.body.successfulTrips + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/addproduct", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_product('" +
+      req.body.barcode + "','" + 
+      req.body.iname + "'," + 
+      req.body.weight + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/addbusiness", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_business('" +
+      req.body.longName + "'," + 
+      req.body.rating + "," + 
+      req.body.spent + ",'" + 
+      req.body.location + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/addlocation", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_location('" +
+      req.body.label + "'," + 
+      req.body.xCoord + "," + 
+      req.body.yCoord + "," + 
+      req.body.space + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/addservice", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_service('" +
+      req.body.id + "','" + 
+      req.body.longName + "','" + 
+      req.body.homeBase + "','" + 
+      req.body.manager + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+app.post("/startfunding", (req, res) => {
+  console.log(req.body);
+  var query = "CALL start_funding('" +
+      req.body.username + "'," + 
+      req.body.invested + ",'" + 
+      req.body.business + "','" + 
+      req.body.investedDate + "');";
       console.log(query);
   connection.query(
     query

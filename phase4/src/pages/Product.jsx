@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { apiCaller } from "../util";
+import AddProduct from "../procedures/AddProduct.jsx";
 
 function Product() {
     const prepareProducts = async () => {
@@ -33,6 +34,7 @@ function Product() {
             </tr>
           ))}
         </tbody></table>
+        <AddProduct />
       </div>
     );
   }
