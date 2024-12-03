@@ -17,8 +17,8 @@ function Fund() {
 
     return (
       <div className="Fund">
-        <p>Fund</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Fund</caption><tbody>
           <tr>
             <th>Username</th>
             <th>Invested</th>
@@ -35,6 +35,7 @@ function Fund() {
           ))}
           </tbody></table>
           <StartFunding />
+          </div>
       </div>
     );
   }

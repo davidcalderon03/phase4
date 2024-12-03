@@ -17,8 +17,10 @@ function Business() {
 
     return (
       <div className="Business">
-        <p>Business</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table>
+        <caption>Business</caption>
+          <tbody>
           <tr>
             <th>Long Name</th>
             <th>Rating</th>
@@ -35,6 +37,7 @@ function Business() {
           ))}
         </tbody></table>
         <AddBusiness />
+        </div>
       </div>
     );
   }

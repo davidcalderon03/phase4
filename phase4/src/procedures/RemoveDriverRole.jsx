@@ -17,13 +17,13 @@ function RemoveDriverRole() {
 
     return (
       <div className="RemoveDriverRole">
-        <p>RemoveDriverRole</p>
         <form onSubmit={removeDriverRole}>
-
-            <label>Username:</label>
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
-
-            <input type="submit" />
+        <p>RemoveDriverRole</p>
+        <div>
+          <label>Username:</label>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+        </div>
+        <input type="submit" />
         </form>
       </div>
     );

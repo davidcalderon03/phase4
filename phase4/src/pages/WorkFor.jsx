@@ -18,8 +18,8 @@ function WorkFor() {
 
     return (
       <div className="WorkFor">
-        <p>Work For</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Work For</caption><tbody>
           <tr>
             <th>Username</th>
             <th>ID</th>
@@ -33,6 +33,7 @@ function WorkFor() {
           </tbody></table>
           <HireEmployee />
           <FireEmployee />
+        </div>
       </div>
     );
   }

@@ -18,8 +18,8 @@ function DeliveryService() {
 
     return (
       <div className="DeliveryService">
-        <p>Delivery Service</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Delivery Service</caption><tbody>
           <tr>
             <th>ID</th>
             <th>Long Name</th>
@@ -37,6 +37,7 @@ function DeliveryService() {
           </tbody></table>
           <AddService />
           <ManageService />
+          </div>
       </div>
     );
   }

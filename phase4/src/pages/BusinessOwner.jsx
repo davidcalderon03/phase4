@@ -17,8 +17,8 @@ function BusinessOwner() {
 
     return (
       <div className="User">
-        <p>User</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>User</caption><tbody>
           <tr>
             <th>Username</th>
           </tr>
@@ -29,6 +29,7 @@ function BusinessOwner() {
           ))}
           </tbody></table>
           <AddOwner />
+          </div>
       </div>
     );
   }

@@ -18,12 +18,12 @@ function RemoveProduct() {
 
     return (
       <div className="RemoveProduct">
-        <p>Remove Product</p>
         <form onSubmit={submitForm}>
-
+          <p>Remove Product</p>
+          <div>
             <label>Barcode:</label>
             <input type="text" value={barcode} onChange={(e) => setBarcode(e.target.value)} /><br />
-
+          </div>
             <input type="submit" />
         </form>
       </div>

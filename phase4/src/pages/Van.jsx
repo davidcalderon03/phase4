@@ -21,9 +21,9 @@ function Van() {
     });
 
     return (
-      <div className="Vans">
-        <p>Vans</p>
-        <table><tbody>
+      <div className="Van">
+        <div style={{display:"flex"}}>
+        <table><caption>Van</caption><tbody>
           <tr>
             <th>ID</th>
             <th>Tag</th>
@@ -51,6 +51,7 @@ function Van() {
         <RefuelVan />
         <LoadVan />
         <TakeoverVan />
+        </div>
       </div>
     );
   }

@@ -22,18 +22,20 @@ function RefuelVan() {
 
     return (
       <div className="RefuelVan">
-        <p>RefuelVan</p>
         <form onSubmit={submitForm}>
-
+          <p>RefuelVan</p>
+          <div>
             <label>ID:</label>
             <input type="text" value={id} onChange={(e) => setId(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Tag:</label>
             <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Fuel:</label>
             <input type="text" value={fuel} onChange={(e) => setFuel(e.target.value)} /><br />
-
+          </div>
             <input type="submit" />
         </form>
       </div>

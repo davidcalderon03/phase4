@@ -24,16 +24,24 @@ function AddBusiness() {
 
     return (
       <div className="AddLocation">
-        <p>AddBusiness</p>
         <form onSubmit={addBusiness}>
-            <label>Business Name:</label>
-            <input type="text" value={longName} onChange={(e) => setLongName(e.target.value)} /><br />
-            <label>Rating:</label>
-            <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} /><br />
-            <label>Spent:</label>
-            <input type="text" value={spent} onChange={(e) => setSpent(e.target.value)} /><br />
-            <label>Location:</label>
-            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} /><br />
+            <p>AddBusiness</p>
+            <div>
+              <label>Business Name:</label>
+              <input type="text" value={longName} onChange={(e) => setLongName(e.target.value)} /><br />
+            </div>
+            <div>
+              <label>Rating:</label>
+              <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} /><br />
+            </div>
+            <div>
+              <label>Spent:</label>
+              <input type="text" value={spent} onChange={(e) => setSpent(e.target.value)} /><br />
+            </div>
+            <div>
+              <label>Location:</label>
+              <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} /><br />
+            </div>
             <input type="submit" />
         </form>
       </div>

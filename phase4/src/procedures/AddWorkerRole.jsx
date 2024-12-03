@@ -17,11 +17,12 @@ function AddWorkerRole() {
 
     return (
       <div className="AddWorkerRole">
-        <p>AddWorkerRole</p>
         <form onSubmit={addWorkerRole}>
-
+          <p>AddWorkerRole</p>
+          <div>
             <label>Username:</label>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+          </div>
             <input type="submit" />
         </form>
       </div>

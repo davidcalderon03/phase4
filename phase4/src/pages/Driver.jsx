@@ -18,8 +18,8 @@ function Driver() {
 
     return (
       <div className="Driver">
-        <p>Driver</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Driver</caption><tbody>
           <tr>
             <th>Username</th>
             <th>License ID</th>
@@ -37,6 +37,7 @@ function Driver() {
           </tbody></table>
           <AddDriverRole />
           <RemoveDriverRole />
+        </div>
       </div>
     );
   }

@@ -24,18 +24,28 @@ function AddOwner() {
     };
     return (
       <div className="AddOwner">
-        <p>AddOwner</p>
         <form onSubmit={addOwner}>
+        <p>AddOwner</p>
+        <div>
             <label>Username:</label>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+        </div>
+        <div>
             <label>First Name:</label>
             <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} /><br />
+        </div>
+        <div>
             <label>Last Name:</label>
             <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} /><br />
+        </div>
+        <div>
             <label>Address:</label>
             <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} /><br />
+        </div>
+        <div>
             <label>Birthdate:</label>
             <input type="text" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} /><br />
+        </div>
             <input type="submit" />
         </form>
       </div>
