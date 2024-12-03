@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
 import AddService from "../procedures/AddService.jsx";
+import ManageService from "../procedures/ManageService.jsx";
 function DeliveryService() {
     const prepareDeliveryServices = async () => {
       const response = await apiCaller("/deliveryservice");
@@ -35,6 +36,7 @@ function DeliveryService() {
           ))}
           </tbody></table>
           <AddService />
+          <ManageService />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
+import AddWorkerRole from "../procedures/AddWorkerRole.jsx";
 function Worker() {
     const prepareWorkers = async () => {
       const response = await apiCaller("/worker");
@@ -27,6 +28,7 @@ function Worker() {
             </tr>
           ))}
           </tbody></table>
+          <AddWorkerRole />
       </div>
     );
   }

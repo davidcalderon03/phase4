@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
+import HireEmployee from "../procedures/HireEmployee.jsx";
+import FireEmployee from "../procedures/FireEmployee.jsx";
 function WorkFor() {
     const prepareWorkFor = async () => {
       const response = await apiCaller("/workfor");
@@ -29,6 +31,8 @@ function WorkFor() {
             </tr>
           ))}
           </tbody></table>
+          <HireEmployee />
+          <FireEmployee />
       </div>
     );
   }

@@ -129,6 +129,16 @@ app.get("/fund", (req, res) => {
 });
 
 // VIEWS
+// 22: Owner View
+app.get("/ownerview", (req, res) => {
+  connection.query("SELECT * FROM display_owner_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// 23: Employee View
 app.get("/employeeview", (req, res) => {
   connection.query("SELECT * FROM display_employee_view", function (err, result) {
     if (err) throw err;
@@ -137,14 +147,7 @@ app.get("/employeeview", (req, res) => {
   });
 });
 
-app.get("/locationview", (req, res) => {
-  connection.query("SELECT * FROM display_location_view", function (err, result) {
-    if (err) throw err;
-    console.log("Result: " + result);
-    res.send(result);
-  });
-});
-
+// 24: Driver View
 app.get("/driverview", (req, res) => {
   connection.query("SELECT * FROM display_driver_view", function (err, result) {
     if (err) throw err;
@@ -153,7 +156,62 @@ app.get("/driverview", (req, res) => {
   });
 });
 
-// STORED PROCEDURES
+// 25: Location View
+app.get("/locationview", (req, res) => {
+  connection.query("SELECT * FROM display_location_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// 26: Product View
+app.get("/productview", (req, res) => {
+  connection.query("SELECT * FROM display_product_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// 27: Service View
+app.get("/serviceview", (req, res) => {
+  connection.query("SELECT * FROM display_service_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// STORED PROCEDURES //
+// 1: Add Owner
+app.post("/addowner", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_owner('" +
+      req.body.username + "','" + 
+      req.body.firstName + "','" + 
+      req.body.lastName + "','" + 
+      req.body.address + "','" + 
+      req.body.birthdate + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 2: Add Employee
 app.post("/addemployee", (req, res) => {
   console.log(req.body);
   var query = "CALL add_employee('" +
@@ -184,6 +242,7 @@ app.post("/addemployee", (req, res) => {
 });
 });
 
+// 3: Add Driver Role
 app.post("/adddriverrole", (req, res) => {
   console.log(req.body);
   var query = "CALL add_driver_role('" +
@@ -209,6 +268,31 @@ app.post("/adddriverrole", (req, res) => {
 });
 });
 
+
+// 4: Add Worker Role
+app.post("/addworkerrole", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_worker_role('" +
+      req.body.username + "');" ;
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 5: Add Product
 app.post("/addproduct", (req, res) => {
   console.log(req.body);
   var query = "CALL add_product('" +
@@ -233,6 +317,36 @@ app.post("/addproduct", (req, res) => {
 });
 });
 
+// 6: Add Van
+app.post("/addvan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_van('" +
+      req.body.id + "'," + 
+      req.body.tag + "," + 
+      req.body.fuel + "," +
+      req.body.capacity + "," +
+      req.body.sales + ",'" +
+      req.body.drivenby + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+
+// 7: Add Business
 app.post("/addbusiness", (req, res) => {
   console.log(req.body);
   var query = "CALL add_business('" +
@@ -258,31 +372,7 @@ app.post("/addbusiness", (req, res) => {
 });
 });
 
-app.post("/addlocation", (req, res) => {
-  console.log(req.body);
-  var query = "CALL add_location('" +
-      req.body.label + "'," + 
-      req.body.xCoord + "," + 
-      req.body.yCoord + "," + 
-      req.body.space + ");";
-      console.log(query);
-  connection.query(
-    query
-  , function (err, result) {
-    if (err) { 
-      console.log("Error: " + err.sqlMessage);
-      res.json({
-        message: err.sqlMessage
-      });
-    } else {
-      console.log("Result: " + result);
-      res.json({
-        message: 'success'
-      });
-    } 
-});
-});
-
+// 8: Add Service
 app.post("/addservice", (req, res) => {
   console.log(req.body);
   var query = "CALL add_service('" +
@@ -308,6 +398,33 @@ app.post("/addservice", (req, res) => {
 });
 });
 
+// 9: Add Location
+app.post("/addlocation", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_location('" +
+      req.body.label + "'," + 
+      req.body.xCoord + "," + 
+      req.body.yCoord + "," + 
+      req.body.space + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 10: Start Funding
 app.post("/startfunding", (req, res) => {
   console.log(req.body);
   var query = "CALL start_funding('" +
@@ -333,6 +450,156 @@ app.post("/startfunding", (req, res) => {
 });
 });
 
+// 11: Hire Employee
+app.post("/hireemployee", (req, res) => {
+  console.log(req.body);
+  var query = "CALL hire_employee('" +
+      req.body.username + "','" + 
+      req.body.id + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 12: Fire Employee
+app.post("/fireemployee", (req, res) => {
+  console.log(req.body);
+  var query = "CALL fire_employee('" +
+      req.body.username + "','" + 
+      req.body.id + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 13: Manage Service
+app.post("/manageservice", (req, res) => {
+  console.log(req.body);
+  var query = "CALL manage_service('" +
+      req.body.username + "','" + 
+      req.body.id + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 14: Takeover Van
+app.post("/takeovervan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL takeover_van('" +
+      req.body.username + "','" + 
+      req.body.id + "'," + 
+      req.body.tag + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 15: Load Van
+app.post("/loadvan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL load_van('" +
+      req.body.id + "'," + 
+      req.body.tag + ",'" + 
+      req.body.barcode + "'," +
+      req.body.quantity + "," +
+      req.body.price + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 16: Refuel Van
+app.post("/refuelvan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL refuel_van('" +
+      req.body.id + "'," + 
+      req.body.tag + "," + 
+      req.body.fuel + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 17: Drive Van
 app.post("/drivevan", (req, res) => {
   console.log(req.body);
   var query = "CALL drive_van('" +
@@ -357,29 +624,7 @@ app.post("/drivevan", (req, res) => {
 });
 });
 
-app.post("/removevan", (req, res) => {
-  console.log(req.body);
-  var query = "CALL remove_van('" +
-      req.body.id + "'," + 
-      req.body.tag + ");";
-      console.log(query);
-  connection.query(
-    query
-  , function (err, result) {
-    if (err) { 
-      console.log("Error: " + err.sqlMessage);
-      res.json({
-        message: err.sqlMessage
-      });
-    } else {
-      console.log("Result: " + result);
-      res.json({
-        message: 'success'
-      });
-    } 
-});
-});
-
+// 18: Purchase Product
 app.post("/purchaseproduct", (req, res) => {
   console.log(req.body);
   var query = "CALL purchase_product('" +
@@ -406,11 +651,58 @@ app.post("/purchaseproduct", (req, res) => {
 });
 });
 
-
+// 19: Remove Product
 app.post("/removeproduct", (req, res) => {
   console.log(req.body);
   var query = "CALL remove_product('" +
       req.body.barcode + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 20: Remove Van
+app.post("/removevan", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_van('" +
+      req.body.id + "'," + 
+      req.body.tag + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 21: Remove Driver Role
+app.post("/removedriverrole", (req, res) => {
+  console.log(req.body);
+  var query = "CALL remove_driver_role('" +
+      req.body.username + "');";
       console.log(query);
   connection.query(
     query

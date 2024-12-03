@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
 import DriveVan from "../procedures/DriveVan.jsx";
 import RemoveVan from "../procedures/RemoveVan.jsx";
-import PurchaseProduct from "../procedures/PurchaseProduct.jsx";
-import RemoveProduct from "../procedures/RemoveProduct.jsx";
+import AddVan from "../procedures/AddVan.jsx";
+import RefuelVan from "../procedures/RefuelVan.jsx";
+import LoadVan from "../procedures/LoadVan.jsx";
+import TakeoverVan from "../procedures/TakeoverVan.jsx";
 function Van() {
     const prepareVans = async () => {
       const response = await apiCaller("/van");
@@ -43,10 +45,12 @@ function Van() {
             </tr>
           ))}
         </tbody></table>
+        <AddVan />
         <DriveVan />
         <RemoveVan />
-        <PurchaseProduct />
-        <RemoveProduct />
+        <RefuelVan />
+        <LoadVan />
+        <TakeoverVan />
       </div>
     );
   }

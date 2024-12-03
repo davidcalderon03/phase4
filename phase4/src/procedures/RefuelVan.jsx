@@ -1,19 +1,19 @@
 
 import React, { useState } from "react";
 import {apiCaller} from "./../util.js";
-function DriveVan() {
+function RefuelVan() {
     const [id, setId] = useState("lcc");
     const [tag, setTag] = useState(1);
-    const [destination, setDestination] = useState("buckhead");
+    const [fuel, setFuel] = useState(40)
 
     const submitForm = async (event) => {
         event.preventDefault();
-        const response = await apiCaller("/drivevan", {
+        const response = await apiCaller("/refuelvan", {
             method: "POST",
             body: JSON.stringify({
                 id: id,
                 tag: Number(tag),
-                destination: destination,
+                fuel: Number(fuel)
               })
         })
         .then(response => console.log(response));
@@ -21,8 +21,8 @@ function DriveVan() {
     };
 
     return (
-      <div className="DriveVan">
-        <p>DriveVan</p>
+      <div className="RefuelVan">
+        <p>RefuelVan</p>
         <form onSubmit={submitForm}>
 
             <label>ID:</label>
@@ -31,8 +31,8 @@ function DriveVan() {
             <label>Tag:</label>
             <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} /><br />
 
-            <label>Destination:</label>
-            <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} /><br />
+            <label>Fuel:</label>
+            <input type="text" value={fuel} onChange={(e) => setFuel(e.target.value)} /><br />
 
             <input type="submit" />
         </form>
@@ -40,5 +40,5 @@ function DriveVan() {
     );
   }
   
-  export default DriveVan;
+  export default RefuelVan;
   

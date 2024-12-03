@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {apiCaller} from "./../util.js";
 function RemoveVan() {
     const [id, setId] = useState("lcc");
-    const [tag, setTag] = useState(1);
+    const [tag, setTag] = useState(3);
 
     const submitForm = async (event) => {
         event.preventDefault();
