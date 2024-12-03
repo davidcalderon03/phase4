@@ -22,14 +22,20 @@ function AddProduct() {
 
     return (
       <div className="AddProduct">
-        <p>AddProduct</p>
         <form onSubmit={addProduct}>
+          <p>AddProduct</p>
+            <div>
             <label>Barcode:</label>
             <input type="text" value={barcode} onChange={(e) => setBarcode(e.target.value)} /><br />
+          </div>
+          <div>
             <label>Inventory Name:</label>
             <input type="text" value={iname} onChange={(e) => setIname(e.target.value)} /><br />
+          </div>
+          <div>
             <label>Weight:</label>
             <input type="text" value={weight} onChange={(e) => setWeight(e.target.value)} /><br />
+          </div>
             <input type="submit" />
         </form>
       </div>

@@ -33,27 +33,45 @@ function AddEmployee() {
 
     return (
       <div className="AddEmployee">
-        <p>AddEmployee</p>
         <form onSubmit={addEmployee}>
-            <label>Username:</label>
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+        <p>AddEmployee</p>
+        <div>
+          <label>Username:</label>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </div>
+        <div>
             <label>First Name:</label>
-            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} /><br />
+            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+        </div>
+        <div>
             <label>Last Name:</label>
-            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} /><br />
+            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+        </div>
+        <div>
             <label>Address:</label>
-            <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} /><br />
+            <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+        </div>
+        <div>
             <label>Birthdate:</label>
-            <input type="text" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} /><br />
+            <input type="text" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
+        </div>
+        <div>
             <label>TaxID:</label>
-            <input type="text" value={taxID} onChange={(e) => setTaxId(e.target.value)} /><br />
+            <input type="text" value={taxID} onChange={(e) => setTaxId(e.target.value)} />
+        </div>
+        <div>
             <label>Hired Date:</label>
-            <input type="text" value={hiredDate} onChange={(e) => setHiredDate(e.target.value)} /><br />
+            <input type="text" value={hiredDate} onChange={(e) => setHiredDate(e.target.value)} />
+        </div>
+        <div>
             <label>Experience:</label>
-            <input type="text" value={experience} onChange={(e) => setExperience(e.target.value)} /><br />
+            <input type="text" value={experience} onChange={(e) => setExperience(e.target.value)} />
+        </div>
+        <div>
             <label>Salary:</label>
-            <input type="text" value={salary} onChange={(e) => setSalary(e.target.value)} /><br />
-            <input type="submit" />
+            <input type="text" value={salary} onChange={(e) => setSalary(e.target.value)} />
+        </div>
+        <input type="submit" />
         </form>
       </div>
     );

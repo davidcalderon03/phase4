@@ -24,16 +24,24 @@ function AddLocation() {
 
     return (
       <div className="AddLocation">
-        <p>AddLocation</p>
         <form onSubmit={addLocation}>
+        <p>AddLocation</p>
+        <div>
             <label>Label:</label>
             <input type="text" value={label} onChange={(e) => setLabel(e.target.value)} /><br />
+        </div>
+        <div>
             <label>X Coordinate:</label>
             <input type="text" value={xCoord} onChange={(e) => setXCoord(e.target.value)} /><br />
+        </div>
+        <div>
             <label>Y Coordinate:</label>
             <input type="text" value={yCoord} onChange={(e) => setYCoord(e.target.value)} /><br />
+        </div>
+        <div>
             <label>Space:</label>
             <input type="text" value={space} onChange={(e) => setSpace(e.target.value)} /><br />
+        </div>
             <input type="submit" />
         </form>
       </div>

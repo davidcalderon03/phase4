@@ -26,25 +26,29 @@ function LoadVan() {
 
     return (
       <div className="LoadVan">
-        <p>LoadVan</p>
         <form onSubmit={submitForm}>
-
+          <p>LoadVan</p>
+          <div>
             <label>ID:</label>
             <input type="text" value={id} onChange={(e) => setId(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Tag:</label>
             <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Barcode:</label>
             <input type="text" value={barcode} onChange={(e) => setBarcode(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Quantity:</label>
             <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Price:</label>
             <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} /><br />
-
-            <input type="submit" />
+          </div>
+          <input type="submit" />
         </form>
       </div>
     );

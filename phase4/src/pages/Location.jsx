@@ -18,8 +18,8 @@ function Location() {
 
     return (
       <div className="Location">
-        <p>Location</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Location</caption><tbody>
           <tr>
             <th>Label</th>
             <th>X Coord</th>
@@ -36,6 +36,7 @@ function Location() {
           ))}
           </tbody></table>
           <AddLocation />
+          </div>
       </div>
     );
   }

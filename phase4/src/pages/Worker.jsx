@@ -17,8 +17,8 @@ function Worker() {
 
     return (
       <div className="Worker">
-        <p>Worker</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Worker</caption><tbody>
           <tr>
             <th>Username</th>
           </tr>
@@ -29,6 +29,7 @@ function Worker() {
           ))}
           </tbody></table>
           <AddWorkerRole />
+        </div>
       </div>
     );
   }

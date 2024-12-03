@@ -17,8 +17,8 @@ function Employee() {
 
     return (
       <div className="Employee">
-        <p>Employee</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Employee</caption><tbody>
           <tr>
             <th>Username</th>
             <th>Salary</th>
@@ -37,6 +37,7 @@ function Employee() {
           ))}
           </tbody></table>
         <AddEmployee />
+        </div>
       </div>
     );
   }

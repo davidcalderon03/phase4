@@ -20,8 +20,8 @@ function Product() {
 
     return (
       <div className="Product">
-        <p>Products</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Product</caption><tbody>
           <tr>
             <th>Barcode</th>
             <th>Name</th>
@@ -37,6 +37,7 @@ function Product() {
         </tbody></table>
         <AddProduct />
         <RemoveProduct />
+        </div>
       </div>
     );
   }

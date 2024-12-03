@@ -16,8 +16,7 @@ function LocationView() {
 
     return (
       <div className="LocationView">
-        <p>Location View</p>
-        <table><tbody>
+        <table><caption>Location View</caption><tbody>
           <tr>
             <th>Label</th>
             <th>Name</th>

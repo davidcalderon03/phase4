@@ -16,8 +16,7 @@ function ProductView() {
 
     return (
       <div className="ProductView">
-        <p>Product View</p>
-        <table><tbody>
+        <table><caption>Product View</caption><tbody>
           <tr>
             <th>Product Name</th>
             <th>Location</th>

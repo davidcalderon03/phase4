@@ -21,15 +21,17 @@ function ManageService() {
 
     return (
       <div className="ManageService">
-        <p>ManageService</p>
         <form onSubmit={manageService}>
+          <p>ManageService</p>
+          <div>
             <label>Username:</label>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
-            
+          </div>
+          <div>  
             <label>ID:</label>
             <input type="text" value={id} onChange={(e) => setId(e.target.value)} /><br />
-            
-            <input type="submit" />
+          </div>
+          <input type="submit" />
         </form>
       </div>
     );

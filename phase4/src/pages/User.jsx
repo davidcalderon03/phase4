@@ -16,8 +16,7 @@ function User() {
 
     return (
       <div className="User">
-        <p>User</p>
-        <table><tbody>
+        <table><caption>User</caption><tbody>
           <tr>
             <th>Username</th>
             <th>First Name</th>

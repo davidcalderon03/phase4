@@ -23,22 +23,25 @@ function AddDriverRole() {
 
     return (
       <div className="AddDriverRole">
-        <p>AddDriverRole</p>
         <form onSubmit={addDriverRole}>
-
-            <label>Username:</label>
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
-
-            <label>License ID:</label>
-            <input type="text" value={licenseID} onChange={(e) => setLicenseID(e.target.value)} /><br />
-
-            <label>License Type:</label>
-            <input type="text" value={licenseType} onChange={(e) => setLicenseType(e.target.value)} /><br />
-
-            <label>Successful Trips:</label>
-            <input type="text" value={successfulTrips} onChange={(e) => setSuccessfulTrips(e.target.value)} /><br />
-
-            <input type="submit" />
+        <p>AddDriverRole</p>
+        <div>
+          <label>Username:</label>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+        </div>
+        <div>
+          <label>License ID:</label>
+          <input type="text" value={licenseID} onChange={(e) => setLicenseID(e.target.value)} /><br />
+        </div>
+        <div>
+          <label>License Type:</label>
+          <input type="text" value={licenseType} onChange={(e) => setLicenseType(e.target.value)} /><br />
+        </div>
+        <div>
+          <label>Successful Trips:</label>
+          <input type="text" value={successfulTrips} onChange={(e) => setSuccessfulTrips(e.target.value)} /><br />
+        </div>
+        <input type="submit" />
         </form>
       </div>
     );

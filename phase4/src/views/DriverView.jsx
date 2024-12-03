@@ -16,8 +16,7 @@ function DriverView() {
 
     return (
       <div className="DriverView">
-        <p>Driver View</p>
-        <table><tbody>
+        <table><caption>Driver View</caption><tbody>
           <tr>
             <th>Username</th>
             <th>LicenseID</th>

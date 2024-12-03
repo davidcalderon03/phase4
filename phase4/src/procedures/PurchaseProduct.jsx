@@ -26,25 +26,29 @@ function PurchaseProduct() {
 
     return (
       <div className="PurchaseProduct">
-        <p>PurchaseProduct</p>
         <form onSubmit={submitForm}>
-
+          <p>PurchaseProduct</p>
+          <div>
             <label>Long Name:</label>
             <input type="text" value={longName} onChange={(e) => setLongName(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>ID:</label>
             <input type="text" value={id} onChange={(e) => setId(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Tag:</label>
             <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Barcode:</label>
             <input type="text" value={barcode} onChange={(e) => setBarcode(e.target.value)} /><br />
-
+          </div>
+          <div>
             <label>Quantity:</label>
             <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} /><br />
-
-            <input type="submit" />
+          </div>
+          <input type="submit" />
         </form>
       </div>
     );

@@ -22,18 +22,20 @@ function DriveVan() {
 
     return (
       <div className="DriveVan">
-        <p>DriveVan</p>
         <form onSubmit={submitForm}>
-
-            <label>ID:</label>
-            <input type="text" value={id} onChange={(e) => setId(e.target.value)} /><br />
-
-            <label>Tag:</label>
-            <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} /><br />
-
-            <label>Destination:</label>
-            <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} /><br />
-
+            <p>DriveVan</p>
+            <div>
+              <label>ID:</label>
+              <input type="text" value={id} onChange={(e) => setId(e.target.value)} /><br />
+            </div>
+            <div>
+              <label>Tag:</label>
+              <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} /><br />
+            </div>
+            <div>
+              <label>Destination:</label>
+              <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} /><br />
+            </div>
             <input type="submit" />
         </form>
       </div>

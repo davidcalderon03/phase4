@@ -16,8 +16,7 @@ function OwnerView() {
 
     return (
       <div className="OwnerView">
-        <p>Owner View</p>
-        <table><tbody>
+        <table><caption>Owner View</caption><tbody>
           <tr>
             <th>Username</th>
             <th>FirstName</th>

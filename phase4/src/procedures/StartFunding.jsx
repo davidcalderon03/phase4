@@ -25,17 +25,25 @@ function StartFunding() {
 
     return (
       <div className="StartFunding">
-        <p>StartFunding</p>
         <form onSubmit={startFunding}>
+          <p>StartFunding</p>
+          <div>
             <label>Username :</label>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+          </div>
+          <div>
             <label>Amount To Invest:</label>
             <input type="text" value={invested} onChange={(e) => setInvested(e.target.value)} /><br />
+          </div>
+          <div>
             <label>Business to Invested In:</label>
             <input type="text" value={business} onChange={(e) => setBusiness(e.target.value)} /><br />
+          </div>
+          <div>
             <label>Date of Investment:</label>
             <input type="text" value={investedDate} onChange={(e) => setInvestedDate(e.target.value)} /><br />
-            <input type="submit" />
+          </div>
+          <input type="submit" />
         </form>
       </div>
     );

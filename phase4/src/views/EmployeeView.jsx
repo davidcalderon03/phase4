@@ -16,8 +16,7 @@ function EmployeeView() {
 
     return (
       <div className="EmployeeView">
-        <p>Employee View</p>
-        <table><tbody>
+        <table><caption>Employee View</caption><tbody>
           <tr>
             <th>Username</th>
             <th>TaxID</th>

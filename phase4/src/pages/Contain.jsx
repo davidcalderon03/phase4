@@ -17,8 +17,8 @@ function Contain() {
 
     return (
       <div className="Contain">
-        <p>Contain</p>
-        <table><tbody>
+        <div style={{display: "flex"}}>
+        <table><caption>Contain</caption><tbody>
           <tr>
             <th>ID</th>
             <th>Tag</th>
@@ -37,6 +37,7 @@ function Contain() {
           ))}
           </tbody></table>
           <PurchaseProduct />
+          </div>
       </div>
     );
   }

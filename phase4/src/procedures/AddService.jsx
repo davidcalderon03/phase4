@@ -24,16 +24,24 @@ function AddService() {
 
     return (
       <div className="AddService">
-        <p>AddService</p>
         <form onSubmit={addService}>
+        <p>AddService</p>
+        <div>
             <label>Id:</label>
             <input type="text" value={id} onChange={(e) => setId(e.target.value)} /><br />
+        </div>
+        <div>
             <label>Delivery Service Name:</label>
             <input type="text" value={longName} onChange={(e) => setLongName(e.target.value)} /><br />
+        </div>
+        <div>
             <label>Home Base:</label>
             <input type="text" value={homeBase} onChange={(e) => setHomeBase(e.target.value)} /><br />
+        </div>
+        <div>
             <label>Manager:</label>
             <input type="text" value={manager} onChange={(e) => setManager(e.target.value)} /><br />
+        </div>
             <input type="submit" />
         </form>
       </div>
