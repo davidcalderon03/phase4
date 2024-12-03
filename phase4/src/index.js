@@ -19,6 +19,8 @@ import WorkFor from './pages/WorkFor';
 import Fund from './pages/Fund';
 
 import EmployeeView from './views/EmployeeView';
+import DriverView from './views/DriverView';
+import LocationView from './views/LocationView';
 import OwnerView from './views/OwnerView';
 import ProductView from './views/ProductView';
 import ServiceView from './views/ServiceView';
@@ -45,10 +47,11 @@ export default function App() {
           <Route path="fund" element={<Fund />} />
 
           <Route path="employee_view" element={<EmployeeView />} />
+          <Route path="location_view" element={<LocationView />} />
+          <Route path="driver_view" element={<DriverView />} />
           <Route path="owner_view" element={<OwnerView />} />
           <Route path="product_view" element={<ProductView />} />
           <Route path="service_view" element={<ServiceView />} />
-
 
           <Route path="*" element={<Home />} />
         </Route>

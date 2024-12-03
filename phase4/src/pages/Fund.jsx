@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
+import StartFunding from "../procedures/StartFunding.jsx";
 function Fund() {
     const prepareFund = async () => {
       const response = await apiCaller("/fund");
@@ -33,6 +34,7 @@ function Fund() {
             </tr>
           ))}
           </tbody></table>
+          <StartFunding />
       </div>
     );
   }

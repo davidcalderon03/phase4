@@ -147,6 +147,24 @@ app.get("/employeeview", (req, res) => {
   });
 });
 
+// 24: Driver View
+app.get("/driverview", (req, res) => {
+  connection.query("SELECT * FROM display_driver_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
+// 25: Location View
+app.get("/locationview", (req, res) => {
+  connection.query("SELECT * FROM display_location_view", function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
+  });
+});
+
 // 26: Product View
 app.get("/productview", (req, res) => {
   connection.query("SELECT * FROM display_product_view", function (err, result) {
@@ -250,11 +268,37 @@ app.post("/adddriverrole", (req, res) => {
 });
 });
 
+
 // 4: Add Worker Role
 app.post("/addworkerrole", (req, res) => {
   console.log(req.body);
   var query = "CALL add_worker_role('" +
       req.body.username + "');" ;
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 5: Add Product
+app.post("/addproduct", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_product('" +
+      req.body.barcode + "','" + 
+      req.body.iname + "'," + 
+      req.body.weight + ");";
       console.log(query);
   connection.query(
     query
@@ -283,6 +327,111 @@ app.post("/addvan", (req, res) => {
       req.body.capacity + "," +
       req.body.sales + ",'" +
       req.body.drivenby + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+
+// 7: Add Business
+app.post("/addbusiness", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_business('" +
+      req.body.longName + "'," + 
+      req.body.rating + "," + 
+      req.body.spent + ",'" + 
+      req.body.location + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 8: Add Service
+app.post("/addservice", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_service('" +
+      req.body.id + "','" + 
+      req.body.longName + "','" + 
+      req.body.homeBase + "','" + 
+      req.body.manager + "');";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 9: Add Location
+app.post("/addlocation", (req, res) => {
+  console.log(req.body);
+  var query = "CALL add_location('" +
+      req.body.label + "'," + 
+      req.body.xCoord + "," + 
+      req.body.yCoord + "," + 
+      req.body.space + ");";
+      console.log(query);
+  connection.query(
+    query
+  , function (err, result) {
+    if (err) { 
+      console.log("Error: " + err.sqlMessage);
+      res.json({
+        message: err.sqlMessage
+      });
+    } else {
+      console.log("Result: " + result);
+      res.json({
+        message: 'success'
+      });
+    } 
+});
+});
+
+// 10: Start Funding
+app.post("/startfunding", (req, res) => {
+  console.log(req.body);
+  var query = "CALL start_funding('" +
+      req.body.username + "'," + 
+      req.body.invested + ",'" + 
+      req.body.business + "','" + 
+      req.body.investedDate + "');";
       console.log(query);
   connection.query(
     query

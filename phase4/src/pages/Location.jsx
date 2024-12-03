@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
+import AddLocation from "../procedures/AddLocation.jsx";
+
 function Location() {
     const prepareLocations = async () => {
       const response = await apiCaller("/location");
@@ -33,6 +35,7 @@ function Location() {
             </tr>
           ))}
           </tbody></table>
+          <AddLocation />
       </div>
     );
   }

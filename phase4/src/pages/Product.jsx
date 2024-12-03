@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { apiCaller } from "../util";
+import AddProduct from "../procedures/AddProduct.jsx";
 import RemoveProduct from "../procedures/RemoveProduct";
 
 function Product() {
@@ -34,6 +35,7 @@ function Product() {
             </tr>
           ))}
         </tbody></table>
+        <AddProduct />
         <RemoveProduct />
       </div>
     );
