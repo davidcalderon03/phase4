@@ -31,8 +31,8 @@ function OwnerView() {
           {ownerView.map((item, index) => (
             <tr key={index}>
               <td>{item.username}</td>
-              <td>{item.firstname}</td>
-              <td>{item.lastname}</td>
+              <td>{item.first_name}</td>
+              <td>{item.last_name}</td>
               <td>{item.address}</td>
               <td>{item.num_businesses}</td>
               <td>{item.num_places}</td>

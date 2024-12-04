@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import {apiCaller} from "../util.js";
 function RemoveProduct() {
-    const [barcode, setBarcode] = useState("gc_4C6B9R");
+    const [barcode, setBarcode] = useState("ww_U478PN");
 
     const submitForm = async (event) => {
         event.preventDefault();

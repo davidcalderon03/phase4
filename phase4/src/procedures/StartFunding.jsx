@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
 function StartFunding() {
-    const [username, setUsername] = useState("gusfring");
+    const [username, setUsername] = useState("sprince6");
     const [invested, setInvested] = useState("3500");
-    const [business, setBusiness] = useState("Los Pollos Hermanos");
-    const [investedDate, setInvestedDate] = useState("2009-17-05");
+    const [business, setBusiness] = useState("Peak Performance Group");
+    const [investedDate, setInvestedDate] = useState("2009-05-17");
     
 
     const startFunding = async (event) => {

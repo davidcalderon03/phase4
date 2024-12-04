@@ -4,7 +4,6 @@ import DriveVan from "../procedures/DriveVan.jsx";
 import RemoveVan from "../procedures/RemoveVan.jsx";
 import AddVan from "../procedures/AddVan.jsx";
 import RefuelVan from "../procedures/RefuelVan.jsx";
-import LoadVan from "../procedures/LoadVan.jsx";
 import TakeoverVan from "../procedures/TakeoverVan.jsx";
 function Van() {
     const prepareVans = async () => {
@@ -49,7 +48,6 @@ function Van() {
         <DriveVan />
         <RemoveVan />
         <RefuelVan />
-        <LoadVan />
         <TakeoverVan />
         </div>
       </div>

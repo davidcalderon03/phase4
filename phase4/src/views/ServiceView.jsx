@@ -16,7 +16,7 @@ function ServiceView() {
 
     return (
       <div className="ServiceView">
-        <table>Service View<tbody>
+        <table><caption>Service View</caption><tbody>
           <tr>
             <th>ID</th>
             <th>Long Name</th>

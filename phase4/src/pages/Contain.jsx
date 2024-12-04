@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {apiCaller} from "./../util.js";
 import PurchaseProduct from "../procedures/PurchaseProduct.jsx";
+import LoadVan from "../procedures/LoadVan.jsx";
 function Contain() {
     const prepareContains = async () => {
       const response = await apiCaller("/contain");
@@ -36,6 +37,7 @@ function Contain() {
             </tr>
           ))}
           </tbody></table>
+          <LoadVan />
           <PurchaseProduct />
           </div>
       </div>

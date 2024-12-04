@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import {apiCaller} from "./../util.js";
 function RefuelVan() {
-    const [id, setId] = useState("lcc");
-    const [tag, setTag] = useState(1);
-    const [fuel, setFuel] = useState(40)
+    const [id, setId] = useState("pbl");
+    const [tag, setTag] = useState(8);
+    const [fuel, setFuel] = useState(10)
 
     const submitForm = async (event) => {
         event.preventDefault();
