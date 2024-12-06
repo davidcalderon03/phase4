@@ -14,3 +14,9 @@
 * ExpressJS
 * Node Package Manager
 * MySQL
+
+# Division of Labor
+* David Calderon: application setup, AddDriverRole, DriveVan, PurchaseProduct, RemoveProduct, RemoveVan, DisplayEmployeeView components.
+* Alison Yeung: AddOwner, AddWorkerRole, AddVan, HireEmployee, RefuelVan, DisplayOwnerView components.
+* Nicholas Porterfield: AddEmployee, FireEmployee, ManageService, TakeoverVan, LoadVan, DisplayServiceView components.
+* Shavon Edih: AddProduct, AddBusiness, AddService, AddLocation, StartFunding, DisplayDriverView, RemoveDriverRole, DisplayLocationView, DisplayProductView components.
